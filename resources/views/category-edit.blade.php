@@ -5,7 +5,10 @@
 @section('page-name', 'Add Category')
 
 @section('content')
+<div class="mt-5 d-flex justify-content-between align-items-center">
     <h1>Edit Category</h1>
+    <a href="/categories" class="btn btn-secondary me-3">Back</a>
+    </div>
 
     <div class="mt-5 w-50">
 

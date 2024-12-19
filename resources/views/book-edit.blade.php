@@ -6,7 +6,10 @@
 
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
-    <h1>Edit Book</h1>
+    <div class="mt-5 d-flex justify-content-between align-items-center">
+        <h1>Edit Book</h1>
+        <a href="/books" class="btn btn-secondary me-3">Back</a>
+    </div>
 
     <div class="mt-5 w-50">
 

@@ -3,9 +3,9 @@
 @section('title', 'Deleted Book')
 
 @section('content')
-    <h1>Deleted Book List</h1>
 
-    <div class="mt-5 d-flex justify-content-end">
+<div class="mt-5 d-flex justify-content-between align-items-center">
+        <h1>Deleted Book List</h1>
         <a href="/books" class="btn btn-secondary me-3">Back</a>
     </div>
 
@@ -18,7 +18,7 @@
     </div>
 
     <div class="my-5">
-        <table class="table">
+        <table class="table table-hover">
             <thead>
                 <tr>
                     <th>No.</th>
@@ -40,5 +40,8 @@
                 @endforeach
             </tbody>
         </table>
+    </div>
+    <div class="d-flex justify-content-center mt-4">
+        {{ $deletedBooks->links() }}
     </div>
 @endsection

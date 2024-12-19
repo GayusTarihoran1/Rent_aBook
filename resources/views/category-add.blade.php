@@ -5,9 +5,9 @@
 @section('page-name', 'Add Category')
 
 @section('content')
-    <h1>Add New Category</h1>
 
-    <div class="mt-5 d-flex justify-content-end">
+<div class="mt-5 d-flex justify-content-between align-items-center">
+        <h1>Add New Category</h1>
         <a href="categories" class="btn btn-secondary me-3">Back</a>
     </div>
 

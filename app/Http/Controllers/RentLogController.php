@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class RentLogController extends Controller
 {
     public function index() {
-        $rentlogs = RentLogs::with(['user', 'book'])->get();
+        $rentlogs = RentLogs::with(['user', 'book'])->paginate(8);
         return view('rentlog', ['rent_logs' => $rentlogs]);
     }
 }

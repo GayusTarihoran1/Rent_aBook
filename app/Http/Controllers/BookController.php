@@ -10,7 +10,7 @@ use App\Models\Book;
 class BookController extends Controller
 {
     public function index() {
-        $books = Book::all();
+        $books = Book::paginate(8);
         return view('book', ['books' => $books]);
     }
 
@@ -76,7 +76,7 @@ class BookController extends Controller
     }
 
     public function deletedBook() {
-        $deletedBooks = Book::onlyTrashed()->get();
+        $deletedBooks = Book::onlyTrashed()->paginate(8);
         return view('book-deleted-list', ['deletedBooks' => $deletedBooks]);
     }
 

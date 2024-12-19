@@ -3,15 +3,18 @@
 @section('title', 'Users')
 
 @section('content')
-    <h1>Detail User</h1>
-    <div class="row">
-        <div class="d-flex justify-content-end">
+    <div class="d-flex justify-content-between align-items-center">
+        <h1>Detail User</h1>
+        <div>
+            <a href="/users" class="btn btn-secondary me-3">Back</a>
             @if ($user->status =='inactive')
-                <a href="/user-approve/{{$user->slug}}" class="btn btn-info">Approve User</a>
-                
+            <a href="/user-approve/{{$user->slug}}" class="btn btn-info">Approve User</a>
+            
             @endif
         </div>
-    
+    </div>
+
+    <div class="row justify-content-between">
         <div class="mt-5 ">
             @if (session('status'))
                 <div class="alert alert-success">
@@ -41,10 +44,11 @@
                 <input type="text" class="form-control" readonly value="{{$user->status}}">
             </div>
         </div>
+        <div class="col-lg-1"></div>
     
-        <div class="col-lg-9 justify-content-end">
-            <h2>User's Rent Log</h2>
-            <x-rent-log-table :rentlog='$rent_logs' />
+        <div class="col-lg-8 justify-content-end">
+            <h4>User's Rent Log</h4>
+            <x-rent-log-table :rentlog='$rent_logs'/>
         </div>
     </div>
     

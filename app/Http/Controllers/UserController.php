@@ -12,24 +12,24 @@ class UserController extends Controller
 {
     public function profile() {
         
-        $rentlogs = RentLogs::with('user', 'book')->where('user_id', Auth::user()->id)->get();
+        $rentlogs = RentLogs::with('user', 'book')->where('user_id', Auth::user()->id)->paginate(8);
         $user = Auth::user();
         return view('profile', ['rent_logs' => $rentlogs], ['user' => $user]);
     }
 
     public function index() {
-        $user = User::where('role_id', 2)->where('status', 'active')->get();
+        $user = User::where('role_id', 2)->where('status', 'active')->paginate(10);
         return view('user', ['user' => $user]);
     }
 
     public function registeredUser() {
-        $registeredUser = User::where('status', 'inactive')->where('role_id', 2)->get();
+        $registeredUser = User::where('status', 'inactive')->where('role_id', 2)->paginate(8);
         return view('registered-user', ['registeredUsers' => $registeredUser]);
     }
     
     public function show($slug) {
         $user = User::where('slug', $slug)->first();
-        $rentlogs = RentLogs::with('user', 'book')->where('user_id', $user->id)->get();
+        $rentlogs = RentLogs::with('user', 'book')->where('user_id', $user->id)->paginate(8);
         return view('user-detail', ['user'=> $user, 'rent_logs' => $rentlogs]);
     }
 
@@ -54,7 +54,7 @@ class UserController extends Controller
     }
 
     public function bannedUser() {
-        $bannedUsers = User::onlyTrashed()->get();
+        $bannedUsers = User::onlyTrashed()->paginate(10);
         return view('user-banned', ['bannedUsers' => $bannedUsers]);
     }
 

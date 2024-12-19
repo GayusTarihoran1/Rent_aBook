@@ -4,10 +4,10 @@
 
 @section('content')
     <div>
+        <h2 class="mb-5">Hi, {{ $user->username }}!</h2>
         <div class="row">
             <!-- Kolom Profil Pengguna -->
-            <div class="col-lg-4 col-md-12">
-                <h2 class="mb-5">Hi, {{ $user->username }}!</h2>
+            <div class="col-lg-3 col-md-12">
                 <div class="mb-5">
                     <div class="mb-3">
                         <label for="" class="form-label">Username</label>
@@ -30,10 +30,10 @@
                     </div>
                 </div>
             </div>
-
+            <div class="col-lg-1"></div>
             <!-- Kolom Rent Log -->
             <div class="col-lg-8 col-md-12">
-                <h2 style="margin-left: 55px ">Your Rent Log</h2>
+                <h4>Your Rent Log</h4>
                 <x-rent-log-table :rentlog='$rent_logs' />
             </div>
         </div>

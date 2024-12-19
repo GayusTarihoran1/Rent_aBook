@@ -1,6 +1,6 @@
 <div>
-    <table class="table mx-3" style="width: 90%; margin: auto; float: right;">
-        <thead>
+    <table class="table table-bordered border-secondary table-hover">
+        <thead class="table-light">
             <tr>
                 <th>No.</th>
                 <th>User</th>
@@ -13,7 +13,7 @@
         <tbody>
             @foreach ($rentlog as $item)
                 <tr class="{{ $item->actual_return_date == null ? '' : ($item->return_date < $item->actual_return_date ? 'text-bg-danger' : 'text-bg-success') }}">
-                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $loop->iteration + ($rentlog->currentPage() - 1) * $rentlog->perPage() }}</td>
                     <td>{{ $item->user->username }}</td>
                     <td>{{ $item->book->title }}</td>
                     <td>{{ $item->rent_date }}</td>
@@ -23,4 +23,7 @@
             @endforeach
         </tbody>
     </table>
+    <div class="d-flex justify-content-center mt-4">
+        {{ $rentlog->links() }}
+    </div>
 </div>
